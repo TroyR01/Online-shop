@@ -1,0 +1,10 @@
+<!--<div [ngClass]="{ 'card' : cardShow.year>2000}">-->
+<a href="#">
+    <div class="card">
+        <img [src]="product_item.image" alt="">
+        <h2>{{product_item.title}}</h2>
+        <p><span>Nombre del vendedor:</span> {{product_item.seller}}</p>
+        <p *ngIf="product_item.quantity>0"><span>Cantidad disponible: </span>{{product_item.quantity}}</p>
+        <p><span>Precio: </span> ${{product_item.price}}</p>
+    </div>
+</a>

@@ -1,0 +1,11 @@
+
+.contenedor{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+h1{
+    display: flex;
+    justify-content: center;
+}
