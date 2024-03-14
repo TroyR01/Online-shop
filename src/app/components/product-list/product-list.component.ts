@@ -1,14 +1,14 @@
 import { NgFor, NgIf } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Product } from '../../interfaces/product.interface';
-import { ShowComponent } from '../show/show.component';
+import { ShowComponent } from '../product/product.component';
 
 @Component({
-  selector: 'app-show-list',
+  selector: 'app-product-list',
   standalone: true,
   imports: [NgIf,NgFor,ShowComponent],
-  templateUrl: './show-list.component.html',
-  styleUrl: './show-list.component.css'
+  templateUrl: './product-list.component.html',
+  styleUrl: './product-list.component.css'
 })
 export class ShowListComponent {
   @Input()

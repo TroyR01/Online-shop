@@ -3,7 +3,7 @@
 </ul>-->
 
 <div class="contenedor">
-    <app-show *ngFor="let product of products" [product_item] = "product"></app-show>
+    <app-product *ngFor="let product of products" [product_item] = "product"></app-product>
     <!--<app-show *ngFor="let show of tvShows" [cardShow] = "show"></app-show>
     <div *ngFor="let show of tvshows">
         <h2>{{show.title}} <span *ngIf="show.year>2000">({{show.year}})</span></h2>
