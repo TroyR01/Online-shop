@@ -1,0 +1,87 @@
+@keyframes slideIn {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.Title
+{
+ font-family: Optima, Verdana,  Tahoma, sans-serif;
+ font-size: 30px;
+
+
+}
+.Welcome
+{
+    font-family:  Geneva, Tahoma, sans-serif;
+    font-size: 55px;
+    font-weight: bold;
+    color: azure;
+    position: absolute;
+    top: 30%;
+    left: 0%;
+    width: 50vw;
+
+    animation: slideIn 1s ease-out; 
+
+}
+.TextA
+{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
+    font-size: 30px;
+    letter-spacing: 1.1px;
+    margin-left: 30px;
+    text-align: center;
+
+}
+p
+{
+    width: 100%;
+}
+.Contenedor{
+position: relative;
+display: inline-block;
+text-align: center;
+width: 100%;
+height: 60vh;
+
+}
+.ImgFondo
+{
+    
+    width: 100%; 
+    height: 100%; 
+    opacity: 90%;
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
+    box-shadow: 0 0 20px 10px rgba(0, 0, 0, 0.5); /* Ajusta los valores según sea necesario */
+
+}
+.Nosotros
+{
+    width: 100%;
+    background-color: #0B161A;
+    color: azure;
+    font-size: 40px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-around;
+}
+.Sub
+{
+    text-align: center;
+    flex: 1;
+    padding: 10px;
+}
+.NText
+{
+    background-color: #d8ddef;
+    display: flex;
+    justify-content: space-around;
+}
