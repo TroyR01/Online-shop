@@ -1,10 +1,81 @@
 <h1>Contact page</h1>
-<p>
-    Llamanos a: (666) 567 34 12
-</p>
-<p>
-    Email : AnimatedStorengmail.com
-</p>
-<p>
-    Dirección : Plaza Pabellón Reforma | San Luis Potosí, San Luis Potosí| Av. Cultura #81 int I-10 | Col. Proyecto Río Sonora | CP: 83270
-</p>
+<div>
+  
+  <div class="contactus">
+    <form action="/send-email" method="post">
+      <div class="form-group">
+        <label for="name">Nombre:</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Correo Electronico:</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label for="message">Mensaje:</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+      </div>
+      <button type="submit">Send</button>
+    </form>
+  </div>
+</div>
+<div class="socialMedia">
+<ul>
+  <li>
+    <a class="facebook" href="">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <fa-icon [icon]="faFacebook" class="facebook"></fa-icon>   
+</a>
+  </li>
+  <li>
+    <a class="twitter" href="">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <fa-icon [icon]="faTwitter" class="twitter"></fa-icon>   
+    </a>
+  </li>
+  <li>
+    <a class="instagram" href="">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <fa-icon [icon]="faInstagram" class="instagram"></fa-icon>   
+    </a>
+  </li>
+  <li>
+    <a class="Whatssap" href="">
+      <span></span>
+      <span ></span>
+      <span></span>
+      <span></span>
+      <fa-icon [icon]="faWhatsapp" class="Whatssap"></fa-icon>   
+    </a>
+  <li>
+    <a class="google" href="">
+      <span ></span>
+      <span ></span>
+      <span></span>
+      <span ></span>
+      <fa-icon [icon]="faGoogle" class="google"></fa-icon>   
+    </a>
+  </li>
+</ul>
+</div>
+<div class=" Contact">
+  <p>
+      Llamanos a: (666) 567 34 12
+  </p>
+  <p>
+      Email : AnimatedStorengmail.com
+  </p>
+  <p>
+      Dirección : Plaza Pabellón Reforma | San Luis Potosí, San Luis Potosí| Av. Cultura #81 int I-10 | Col. Proyecto Río Sonora | CP: 83270
+  </p>
+</div>
+  
