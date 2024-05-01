@@ -1,0 +1,30 @@
+.selected {
+    background-color: beige;
+}
+.image{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.info{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 50%;
+}
+.card{
+    width: 800px;
+    height: 250px;
+    display: flex;
+    justify-content: space-evenly;
+    border: 2px solid black;
+    border-radius: 12px;
+}
+.borrar{
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}

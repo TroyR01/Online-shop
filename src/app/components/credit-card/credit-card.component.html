@@ -1,0 +1,11 @@
+<div class="card" [ngClass]="{'selected':creditCard.isSelected}" (click)="onSelect()">
+    <div class="image">
+        hola
+    </div>
+    <div class="info">
+        <h2>{{creditCard.num_tarjeta}}</h2>
+        <p><span>Nombre del titular:</span> {{creditCard.nombre}}</p>
+        <p><span>Fecha de expedicion: </span> {{creditCard.date}}</p>
+    </div>
+    <div class="borrar"><button>Borrar</button></div>
+</div>
