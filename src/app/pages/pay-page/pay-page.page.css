@@ -1,8 +1,59 @@
-.paydiv{
-    width: 100vw;
-    height: 300px;
+body {
     display: flex;
-    align-items: center;
+    /*height: 100vh; /* Esto hace que el cuerpo ocupe toda la altura de la ventana del navegador */
+    margin: 0;
+  }
+  
+  .paydiv, .form-container {
+    flex: 1; /* Esto hace que cada elemento ocupe la mitad de la pantalla */
+  }
+.paydiv{
+    width: 45vw;
+    /*height: 300px;*/
+    display: flex;
+   /* align-items: center;*/
     justify-content: center;
     overflow: scroll;
+    overflow: hidden;
 }
+/* Estilo para el contenedor del formulario */
+.form-container {
+     width: 80%;
+    height: 55vh;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    color: azure;
+    font-size: 25px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background: linear-gradient(135deg, #005ed1 0%, #000000 100%);
+  }
+  
+  /* Estilo para los campos de entrada del formulario */
+  .form-container input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    font-size: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 15px 4px rgba(0,0,0,0.06);
+  }
+  
+  /* Estilo para el botón de envío del formulario */
+  .form-container button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background: linear-gradient(135deg, #2594df 0%, #5c59b6 100%);
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+  }
+  
+  /* Cambia el color de fondo del botón cuando el usuario pasa el ratón por encima */
+  .form-container button:hover {
+    background: linear-gradient(135deg, #5c59b6 0%, #2594df 100%);
+  }
