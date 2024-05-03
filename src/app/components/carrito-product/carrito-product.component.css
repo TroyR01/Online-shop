@@ -1,20 +1,101 @@
-.contenedor{
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+  }
+  
+  .contenedor {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    border: 2px solid;
-    border-color: black;
-    border-radius: 9px;
-    width: 80vw;
+    margin: 0 auto;
+    max-width: 800px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .contenedor:hover {
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+    transform: scale(1.02);
+  }
+  
+  .cont-item img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  
+  .cont-item h2 {
+    color: #333;
+    margin: 10px 0;
+    font-size: 18px;
+  }
+  
+  .cont-item p {
+    color: #666;
+    font-size: 14px;
+  }
+
+
+body {
+  margin: 32px;
 }
-.cont-item{
-    width: 30%;
-    height: 300px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:700);
+
+
+#holder{
+  user-select: -moz-none;
+
+  background: white;
+  padding: 10px;
+  width: 250px;
+  margin: 0 auto;
+  position: relative;
+  top: 50%;
+  transform: translateY(-100%);
+  box-shadow: 0px 3px 8px rgba(0,0,0,0.25);
+  border-radius: 2px;
 }
-img{
-    width: 50%;
-    height: 80%;
+.button {
+  background: #9a5959;
+  margin : 20px auto;
+  width : 200px;
+  height : 50px;
+  overflow: hidden;
+  text-align : center;
+  transition : .2s;
+  cursor : pointer;
+  border-radius: 3px;
+  color: #FFF;
+  box-shadow: 0px 1px 2px rgba(0,0,0,.2);
+}
+.btnTwo {
+  position : relative;
+  width : 200px;
+  height : 100px;
+  margin-top: -100px;
+  padding-top: 2px;
+  background : #801616;
+  left : -250px;
+  transition : .3s;
+}
+
+.btnText2 {
+  margin-top : 63px;
+  margin-right : -130px;
+  color : #FFF;
+}
+.button:hover .btnTwo{ /*When hovering over .button change .btnTwo*/
+  left: -130px;
+}
+.button:hover .btnText{ /*When hovering over .button change .btnText*/
+  margin-left : 65px;
+}
+.button:active { /*Clicked and held*/
+  box-shadow: 0px 5px 6px rgba(0,0,0,0.3);
 }

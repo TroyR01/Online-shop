@@ -1,6 +1,62 @@
-.id{
-    font-weight:lighter;
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f0f5;
 }
-p span{
-    font-weight: bold;
+
+.user-card {
+    display: flex;
+   background-color: black;
+    border-radius: 15px;
+    padding: 20px;
+    width: 90vw;
+    height: 50vh;
+    color: white;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+}
+
+.user-info {
+    flex: 1;
+    /* ...otros estilos... */
+}
+
+
+
+h1 {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.id {
+    font-size: 18px;
+    color: rgba(255,255,255,0.7);
+}
+
+p {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+button {
+    background-color: #ff4081;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: white;
+    color: black;
 }
