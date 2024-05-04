@@ -5,4 +5,6 @@ export interface Product {
     price: number,
     image: string,
     quantity:number
+    descripcion:string,
+    id_vendedor:string
 }

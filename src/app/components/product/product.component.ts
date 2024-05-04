@@ -18,6 +18,8 @@ export class ShowComponent {
     seller: "",
     price: 0,
     image: "",
-    quantity:0
+    quantity:0,
+    descripcion:"",
+    id_vendedor:""
   };
 }

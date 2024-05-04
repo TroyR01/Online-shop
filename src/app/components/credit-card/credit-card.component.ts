@@ -16,7 +16,8 @@ export class CreditCardComponent {
     cvv: "123",
     date: "01/30",
     nombre: "Default",
-    isSelected: false
+    isSelected: false,
+    id_user:0
   }
   public onSelect() : void {
     console.log("Selected");

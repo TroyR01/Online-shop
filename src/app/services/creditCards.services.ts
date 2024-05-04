@@ -13,14 +13,16 @@ export class CreditCardServices{
             "nombre": "Andres Robledo Robledo",
             "cvv": "123",
             "date": "02/26",
-            "isSelected":false
+            "isSelected":false,
+            "id_user":0
         },
         {
             "num_tarjeta": "1212121212331",
             "nombre": "Romina Perez Flores",
             "cvv": "123",
             "date": "02/26",
-            "isSelected":false
+            "isSelected":false,
+            "id_user":0
         },
     ]
 }

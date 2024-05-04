@@ -3,5 +3,6 @@ export interface creditCard {
     num_tarjeta: string,
     cvv: string,
     date: string,
-    nombre:string
+    nombre:string,
+    id_user:Number
 }
