@@ -7,6 +7,16 @@ import { Product } from '../interfaces/product.interface';
 
 export class ProductServices{
     constructor() { }
+    public product: Product = {
+        "title": "One Piece Manga Tomo 1",
+        "seller": "Panini Manga Mx",
+        "price": 150.00,
+        "image": "https://resources.sanborns.com.mx/imagenes-sanborns-ii/1200/9786075280073.jpg",
+        "quantity": 10,
+        "id": 0,
+        "descripcion":"Descripcion 1",
+        "id_vendedor":"2"
+    }
     public productlist: Product[] = [
         {
             "title": "One Piece Manga Tomo 1",
