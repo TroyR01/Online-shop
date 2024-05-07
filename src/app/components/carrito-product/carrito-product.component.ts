@@ -18,6 +18,6 @@ export class CarritoProductComponent {
     image: "",
     quantity: 0,
     descripcion: "",
-    id_vendedor: ''
+    id_vendedor: 0
   };
 }

@@ -15,7 +15,7 @@ export class ProductServices{
         "quantity": 10,
         "id": 0,
         "descripcion":"Descripcion 1",
-        "id_vendedor":"2"
+        "id_vendedor":2
     }
     public productlist: Product[] = [
         {
@@ -26,7 +26,7 @@ export class ProductServices{
             "quantity": 10,
             "id": 0,
             "descripcion":"Descripcion 1",
-            "id_vendedor":"2"
+            "id_vendedor":2
         },
         {
             "title": "Dragon Ball Manga Tomo 1",
@@ -36,7 +36,7 @@ export class ProductServices{
             "quantity": 10,
             "id": 0,
             "descripcion":"Descripcion 1",
-            "id_vendedor":"2"
+            "id_vendedor":2
         },
     ]
 }
