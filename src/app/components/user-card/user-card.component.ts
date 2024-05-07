@@ -15,7 +15,9 @@ export class UserCardComponent {
     correo: '',
     nombre: '',
     direccion: '',
-    colonia:''
+    colonia:'',
+    tipo:0,
+    password:""
   }
 
 }

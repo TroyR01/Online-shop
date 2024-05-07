@@ -17,7 +17,7 @@ export const routes: Routes = [
     {path: "error",component:ErrorPage},
     {path: "login",component:LoginPage},
     {path: "pay",component:PayPage},
-    {path: "user",component:UserPage},
+    {path: "user/:id",component:UserPage},
     {path: "carrito",component:CarritoPage},
     {path: "inventario",component:InventarioPage},
     {path: "producto",component:ProductPage},

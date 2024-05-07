@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { UserCardComponent } from '../../components/user-card/user-card.component';
 import { UserInfoServices } from '../../services/userInfo.services';
 import { userInfo } from '../../interfaces/user_info.interface';
@@ -10,11 +10,15 @@ import { userInfo } from '../../interfaces/user_info.interface';
   templateUrl: './user.page.html',
   styleUrl: './user.page.css'
 })
-export class UserPage {
-  constructor(private userInfoService:UserInfoServices){
-
+export class UserPage implements OnInit{
+  
+  constructor(private userInfoService:UserInfoServices){}
+  @Input() id!: Number;
+  ngOnInit(): void {
+    this.userInfoService.fetchUser(this.id);
   }
   public get info():userInfo{
+    //console.log("user ts: "+ this.userInfoService.userinfo.colonia);
     return this.userInfoService.userinfo;
   }
 }
