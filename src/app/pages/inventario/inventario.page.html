@@ -1,10 +1,21 @@
-<app-product-inventory-list [products]="products"></app-product-inventory-list>
-<div>
-    <p><span>Id del producto:</span><input></p>
-    <p><span>Nombre del producto:</span><input></p>
-    <p><span>Precio del producto:</span><input></p>
-    <p><span>Cantidad del producto:</span><input></p>
-    <p><span>Descripción del producto:</span><input></p>
-    <p><span>Imagen del producto:</span><input></p>
-    <button>Registrar</button>
+<div class="container">
+    <!-- Lista de productos en la mitad izquierda -->
+    <div class="product-list">
+        <app-product-inventory-list [products]="products"></app-product-inventory-list>
+    </div>
+
+    <!-- Formulario en la mitad derecha -->
+    <div class="form">
+        <div>
+            <p><span>Id del producto:</span><input type="text" name="product_id"></p>
+            <p><span>Nombre del producto:</span><input type="text" name="product_name"></p>
+            <p><span>Precio del producto:</span><input type="number" name="product_price"></p>
+            <p><span>Cantidad del producto:</span><input type="number" name="product_quantity"></p>
+            <p><span>Descripción del producto:</span><input type="text" name="product_description"></p>
+            <p><span>Imagen del producto:</span><input type="file" name="product_image"></p>
+            <div class="button-container">
+            <button type="submit">Registrar</button>
+            </div>
+        </div>
+    </div>
 </div>

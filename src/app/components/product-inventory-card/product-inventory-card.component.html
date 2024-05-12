@@ -9,7 +9,15 @@
         <p *ngIf="product_item.quantity>0"><span>Precio: </span> ${{product_item.price}}</p>
         <p><span>Descripción:</span>${{product_item.descripcion}}</p>
     </div>
-    <div>
-        <button>+</button>
-    </div>
+    <div class="" style="text-align: center;margin-top:5%">
+        <button class="icon-btn add-btn">
+          <div class="add-icon"></div>
+          <div class="btn-txt">Add</div>
+        </button>
+      </div>
+      <div class="" style="text-align: center; margin-top:5%">
+        <button class="icon-btn add-btn">  
+          <div class="btn-txt">Remove</div>
+        </button>
+      </div>
 </div>

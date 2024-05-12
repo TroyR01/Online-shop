@@ -10,6 +10,11 @@
 					<input type="text" name="txt" placeholder="User name" required="" [(ngModel)]="nombre">
 					<input type="email" name="email" placeholder="Email" required="" [(ngModel)]="correo">
 					<input type="password" name="pswd" placeholder="Password" required="" [(ngModel)]="password">
+					<select name="role" required="">
+						<option value="" disabled selected>Selecciona tu rol</option>
+						<option value="vendedor">Vendedor</option>
+						<option value="cliente">Cliente</option>
+					</select>
 					<button (click)="addUser()">Sign up</button>
 				</form>
 			</div>
@@ -19,6 +24,7 @@
 					<label for="chk" aria-hidden="true">Login</label>
 					<input type="email" name="email" placeholder="Email" required="">
 					<input type="password" name="pswd" placeholder="Password" required="">
+					
 					<button>Login</button>
 				</form>
 			</div>

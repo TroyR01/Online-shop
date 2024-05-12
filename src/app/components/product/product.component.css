@@ -1,28 +1,85 @@
-.card{
-    max-width: 250px;
-    height: 600px;
-    margin: 10px;
-    padding: 15px;
-    border-radius: 12px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    border: 1px solid black;
+.card {
+    max-width: 300px;
+
+    margin: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    font-family: 'Arial', sans-serif;
 }
-.selected {
-    background-color: beige;
+
+.card img {
+    width: 100%;
+    min-height: 400px;
+    max-height: 400px;
+
 }
-img{
-    height: 300px;
-    width: 250px;
+
+.card h1 {
+    font-size: 1.5em;
+    color: #333;
+    padding: 16px;
+    margin: 0;
+    background-color: #fafafa;
+    border-bottom: 1px solid #eaeaea;
 }
-h2{
-    max-width: 220px;
+
+.card p {
+    padding: 0 16px;
+    margin: 10px 0;
+    color: #666;
 }
-span{
+
+.card p span {
     font-weight: bold;
+    color: #333;
 }
-a{
-    text-decoration: none;
-    color: black;
+
+.botones {
+    padding: 16px;
+    background-color: #fafafa;
+    text-align: center;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #E43F6F;
+    color: white;
+    font-size: 0.9em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #C53268;
+}
+
+/* Estilos específicos para la temática de anime */
+.card {
+    background-color: #f4f4f4;
+    border: 2px solid #ff4d6d; /* Color rosa para el borde */
+}
+
+.card h1 {
+    color: #ff4d6d; /* Color rosa para el título */
+}
+
+.card p span {
+    color: #ff4d6d; /* Color rosa para los subtítulos */
+}
+
+.botones button {
+    background-color: #3f51b5; /* Color azul para los botones */
+}
+
+.botones button:nth-child(2) {
+    background-color: #ff9800; /* Color naranja para el segundo botón */
+}
+
+img{
+    height: 100%;
 }

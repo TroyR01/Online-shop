@@ -1,14 +1,14 @@
 <div class="card">
-    <div><img [src]="product_item.image" alt=""></div>
-    <div>
+    <div class="img-container"><img [src]="product_item.image" alt=""></div>
+    <div class="informacion">
         <h1>{{product_item.title}}</h1>
         <p><span>Nombre del vendedor:</span> {{product_item.seller}}</p>
         <p *ngIf="product_item.quantity>0"><span>Cantidad disponible: </span>{{product_item.quantity}}</p>
         <p><span>Precio: </span> ${{product_item.price}}</p>
         <p><span>Descripción: </span>{{product_item.descripcion}}</p>
         <div *ngIf="product_item.quantity>0" class="botones">
-            <button>Agregar al carrito</button>
-            <button>Comprar</button>
+            <button class="agregar-al-carrito">Agregar al carrito</button>
+            <button class="comprar">Comprar</button>
         </div>
     </div>
 </div>
