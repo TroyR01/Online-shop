@@ -2,8 +2,8 @@
   <a routerLink="./home" >
     <img src="/assets/img/logo.png" class="logo-img">
   </a>  <div class="search_bar">
-    <input type="text" placeholder="Buscar en AnimatedStore">
-    <button class="Buscar">Buscar</button>
+    <input type="text" placeholder="Buscar en AnimatedStore" [(ngModel)]="searchTerm">
+    <button class="Buscar" (click)="btnClickSearch()">Buscar</button>
   </div>
   <div>
     <a class="login" routerLink="./login"routerLinkActive="active">Iniciar Sesión</a><br>

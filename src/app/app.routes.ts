@@ -20,7 +20,7 @@ export const routes: Routes = [
     {path: "user/:id",component:UserPage},
     {path: "carrito",component:CarritoPage},
     {path: "inventario",component:InventarioPage},
-    {path: "producto",component:ProductPage},
+    {path: "producto/:id",component:ProductPage},
     {path: "",redirectTo: "home",pathMatch: "full"},
     {path: "**",redirectTo: "error",pathMatch: "full"}
 ];
