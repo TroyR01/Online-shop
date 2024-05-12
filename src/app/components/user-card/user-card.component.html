@@ -1,9 +1,9 @@
 <div class="user-card">
     <div class="user-info">
         <h1>Bienvenido {{userInfo.nombre}}</h1><span class="id">({{userInfo.id}})</span>
-        <p><span>Correo electrónico:</span>{{userInfo.correo}} <button>Editar</button></p>
-        <p><span>Direccion de envío:</span>{{userInfo.direccion}}<button>Editar</button></p>
-        <p><span>Colonia: </span>{{userInfo.colonia}}<button>Editar</button></p>
+        <p><span>Correo electrónico:</span><input placeholder="{{userInfo.correo}}" [(ngModel)]="correo"> <button (click)="updateInfo()">Editar</button></p>
+        <p><span>Direccion de envío:</span><input placeholder="{{userInfo.direccion}}" [(ngModel)]="direccion"><button (click)="updateInfo()">Editar</button></p>
+        <p><span>Colonia: </span><input placeholder="{{userInfo.colonia}}" [(ngModel)]="colonia"><button (click)="updateInfo()">Editar</button></p>
     </div>
     <div class="profile">
         <img src='https://i.pinimg.com/564x/48/86/9d/48869d2b38465ba2587169ed1d27e9cb.jpg'>

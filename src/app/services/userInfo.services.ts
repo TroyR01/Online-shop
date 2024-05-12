@@ -34,6 +34,8 @@ export class UserInfoServices {
             id: id,
             nombre: nombre,
             correo: correo,
+            direccion: "direccion 1",
+            colonia: "colonia 1",
             password: password,
             tipo:tipo
         }).subscribe({
@@ -46,15 +48,12 @@ export class UserInfoServices {
             }
         })
     }
-    public updateUserInfo(id: Number, nombre: string, direccion: string, colonia: string, tipo: number, email: string, password: string): void {
+    public updateUserInfo(id: Number, direccion: string, colonia: string, email: string): void {
         this.http.put("http://localhost:8081/api/users/" + id, {
             id: id,
-            nombre: nombre,
             correo: email,
             direccion: direccion,
-            colonia: colonia,
-            tipo: tipo,
-            password: password
+            colonia: colonia
         }).subscribe({
             next: (response: any) => {
                 console.log(response.result);

@@ -5,10 +5,10 @@
    <app-credit-card-list [cards]="cards"></app-credit-card-list>
 </div>
 <div class="form-container">
-    <p><span>Numero tarjeta: </span><input type="text"></p>
-    <p><span>Nombre titutlar: </span><input type="text"></p>
-    <p><span>CVV: </span><input type="password"></p>
-    <p><span>Fecha de expiracion: </span><input type="month"></p>
-    <button>Continuar al Pago</button>
+    <p><span>Numero tarjeta: </span><input type="text" [(ngModel)]="num_tar"></p>
+    <p><span>Nombre titutlar: </span><input type="text" [(ngModel)]="nombre"></p>
+    <p><span>CVV: </span><input type="password" [(ngModel)]="cvv"></p>
+    <p><span>Fecha de expiracion: </span><input type="month" [(ngModel)]="date"></p>
+    <button (click)="pay()">Continuar al Pago</button>
 </div>
 </body>

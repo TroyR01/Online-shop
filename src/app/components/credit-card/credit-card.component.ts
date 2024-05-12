@@ -1,6 +1,8 @@
 import { Component, Input } from '@angular/core';
 import { creditCard } from '../../interfaces/creditCard.interface';
 import { NgClass } from '@angular/common';
+import { CreditCardServices } from '../../services/creditCards.services';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-credit-card',
@@ -10,6 +12,8 @@ import { NgClass } from '@angular/common';
   styleUrl: './credit-card.component.css'
 })
 export class CreditCardComponent {
+  constructor(private creditService:CreditCardServices,private router:Router){
+  }
   @Input()
   public creditCard :creditCard = {
     num_tarjeta: "0",
@@ -23,5 +27,10 @@ export class CreditCardComponent {
     console.log("Selected");
     this.creditCard.isSelected = !this.creditCard.isSelected;
     console.log(this.creditCard.isSelected);
+  }
+
+  public deleteCreditCard(num_tar:string):void{
+    this.creditService.deleteCreditCard(num_tar,24601);
+    this.router.navigate(['/pay']);;
   }
 }

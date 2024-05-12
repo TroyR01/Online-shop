@@ -12,7 +12,9 @@ import { userInfo } from '../../interfaces/user_info.interface';
 })
 export class UserPage implements OnInit{
   
-  constructor(private userInfoService:UserInfoServices){}
+  constructor(private userInfoService:UserInfoServices){
+    //this.userInfoService.fetchUser(this.id);
+  }
   @Input() id!: Number;
   ngOnInit(): void {
     this.userInfoService.fetchUser(this.id);

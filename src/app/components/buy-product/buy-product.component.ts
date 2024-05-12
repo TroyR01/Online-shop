@@ -1,6 +1,8 @@
 import { Component, Input } from '@angular/core';
 import { Product } from '../../interfaces/product.interface';
 import { NgIf } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
+import { ProductServices } from '../../services/products.services';
 
 @Component({
   selector: 'app-buy-product',
@@ -10,6 +12,9 @@ import { NgIf } from '@angular/common';
   styleUrl: './buy-product.component.css'
 })
 export class BuyProductComponent {
+  constructor(private http: HttpClient,private productService:ProductServices) { 
+    
+  }
   @Input()
   public product_item :Product = {
     id: 0,
@@ -21,4 +26,8 @@ export class BuyProductComponent {
     descripcion:"",
     id_vendedor:0
   };
+  public btnAddCarrito(id:Number){
+    this.productService.addProductCarrito(id);
+    
+  }
 }

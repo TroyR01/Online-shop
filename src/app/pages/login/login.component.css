@@ -20,9 +20,10 @@
 	display: none;
 }
 .signup{
-	position: relative;
+	position: static;
 	width:100%;
 	height: 100%;
+	
 }
 label{
 	color: #fff;
@@ -86,4 +87,25 @@ button:hover{
 }
 #chk:checked ~ .signup label{
 	transform: scale(.6);
+}
+select {
+	width: 60%;
+	height: 40px;
+	background: #e0dede;
+	margin: 20px auto;
+	padding: 10px;
+	border: none;
+	outline: none;
+	border-radius: 5px;
+	display: block; /* Asegura que el select se centre como los inputs */
+}
+
+/* Estilo para las opciones del select */
+select option {
+	color: #333; /* Color del texto para las opciones */
+}
+
+/* Estilo para el select cuando está enfocado */
+select:focus {
+	background: #f0f0f0;
 }

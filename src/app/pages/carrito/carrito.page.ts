@@ -12,9 +12,9 @@ import { ProductServices } from '../../services/products.services';
 })
 export class CarritoPage {
   constructor(private productService : ProductServices){
-    
+    productService.fetchCarrito(24601);
   }
   public get products():Product[]{
-    return this.productService.productlist;
+    return this.productService.carritolist;
   }
 }
