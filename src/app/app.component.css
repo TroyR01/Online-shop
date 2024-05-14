@@ -102,4 +102,13 @@ input{
     text-decoration: underline;
 
   }
- 
+  .boton-carrito {
+     background-color: #0B161A;
+     padding: 20px;
+  }
+  
+  .boton-carrito img {
+    height: 70px; /* Ajusta la altura según sea necesario */
+    width: auto;
+  }
+  

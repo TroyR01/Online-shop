@@ -1,6 +1,7 @@
 body {
     font-family: 'Arial', sans-serif;
     background-color: #f0f0f5;
+    font-weight: bolder;
 }
 
 .user-card {
@@ -11,10 +12,14 @@ body {
     width: 90vw;
     height: 50vh;
     color: white;
+    font-family:'Times New Roman', Times, serif;
+    font-weight: bolder;
+    font-size: 20px;
     box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
     margin: auto;
     overflow: hidden;
     position: relative;
+
 }
 
 .user-info {
@@ -60,3 +65,13 @@ button:hover {
     background-color: white;
     color: black;
 }
+.user-info input {
+    display: block;
+    margin: 10px auto; /* Centra los inputs horizontalmente */
+    padding: 8px;
+    width: 80%; /* Ajusta esto según el ancho deseado */
+    border: 1px solid #ccc; /* Borde sutil */
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 20px;
+  }
