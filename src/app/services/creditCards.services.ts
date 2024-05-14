@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { creditCard } from '../interfaces/creditCard.interface';
 import { HttpClient } from '@angular/common/http';
+import { UserInfoServices } from './userInfo.services';
 
 @Injectable({
     providedIn: 'root'
@@ -11,7 +12,12 @@ export class CreditCardServices {
     }
     public creditCardList: creditCard[] = [];
     public fetchCreditCard(id: Number): void {
-        this.http.get("http://localhost:8081/api/creditCard/" + id).subscribe({
+        const token = localStorage.getItem("auth_token")??"";
+        this.http.get("http://localhost:8081/api/creditCard/" + id,{
+            headers:{
+                "Authorization":token
+              }
+        }).subscribe({
             next: (response: any) => {
                 this.creditCardList = response.result;
                 console.log(this.creditCardList);

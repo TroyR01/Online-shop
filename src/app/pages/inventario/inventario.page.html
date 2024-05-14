@@ -7,14 +7,15 @@
     <!-- Formulario en la mitad derecha -->
     <div class="form">
         <div>
-            <p><span>Id del producto:</span><input type="text" name="product_id"></p>
-            <p><span>Nombre del producto:</span><input type="text" name="product_name"></p>
-            <p><span>Precio del producto:</span><input type="number" name="product_price"></p>
-            <p><span>Cantidad del producto:</span><input type="number" name="product_quantity"></p>
-            <p><span>Descripción del producto:</span><input type="text" name="product_description"></p>
-            <p><span>Imagen del producto:</span><input type="file" name="product_image"></p>
+            <!--<p><span>Id del producto:</span><input type="text" name="product_id" ></p>-->
+            <p><span>Nombre del producto:</span><input type="text" name="product_name" [(ngModel)]="prod_name"></p>
+            <p><span>Nombre de editorial/marca:</span><input type="text" name="product_name" [(ngModel)]="edit"></p>
+            <p><span>Precio del producto:</span><input type="number" name="product_price" [(ngModel)]="price"></p>
+            <p><span>Cantidad del producto:</span><input type="number" name="product_quantity" [(ngModel)]="quantity"></p>
+            <p><span>Descripción del producto:</span><input type="text" name="product_description" [(ngModel)]="description"></p>
+            <p><span>Imagen del producto:</span><input type="text" name="product_image" [(ngModel)]="img_url"></p>
             <div class="button-container">
-            <button type="submit">Registrar</button>
+            <button type="submit" (click)="addProductInventory()">Registrar</button>
             </div>
         </div>
     </div>

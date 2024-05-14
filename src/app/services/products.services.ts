@@ -1,16 +1,37 @@
 import { Injectable } from '@angular/core';
 import { Product } from '../interfaces/product.interface';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
+import { UserInfoServices } from './userInfo.services';
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class ProductServices {
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient,private router:Router,private userInfo:UserInfoServices) {
     this.fetchProduct();
   }
-
+  public addProduct(prod_name:string,price:Number,quantity:Number,desc:string,url:string,id_vendedor:Number,seller:string):void{
+    this.http.post("http://localhost:8081/api/products", {
+        id:90,
+        title:prod_name,
+        seller:seller,
+        price:price,
+        image:url,
+        quantity:quantity,
+        descripcion:desc,
+        id_vendedor:id_vendedor
+    }).subscribe({
+      next: (response: any) => {
+        //this.product_item = response.result
+        console.log(response.result);
+      },
+      error: (error: any) => {
+        console.log(error);
+      }
+    })
+  }
   public searchByTerm(value: string): void {
     //this.tvShow1 = this.tvShows2.filter(item => item.title.toLocaleUpperCase().includes(value.toLocaleUpperCase()))
     this.fetchProduct(value);
@@ -38,25 +59,68 @@ export class ProductServices {
     })
   }
 
-  public fetchCarrito(id:Number):void{
-    
-    this.http.get("http://localhost:8081/api/carrito/" + id).subscribe({
+  public fetchCarrito(id: Number): void {
+    const token = localStorage.getItem("auth_token")??"";
+    this.http.get("http://localhost:8081/api/carrito/" + id,{
+      headers:{
+        "Authorization":token
+      }
+    }).subscribe({
       next: (response: any) => {
         this.carritolist = response.result
         console.log(response.result);
       },
       error: (error: any) => {
         console.log(error);
+        this.router.navigate(["/login"]);
       }
     })
   }
   public addProductCarrito(id: Number): void {
+    const token = localStorage.getItem("auth_token")??"";
+    const id_user = localStorage.getItem("id_user");
+    console.log(id_user)
     this.http.post("http://localhost:8081/api/carrito/" + id, {
-      id_user: 24601,
+      id_user: parseInt(id_user??"", 10),
       id: 20
-    }).subscribe({
+    },
+    {
+      headers:{
+        "Authorization":token
+      }
+    }
+  ).subscribe({
       next: (response: any) => {
         //this.product_item = response.result
+        console.log(response.result);
+      },
+      error: (error: any) => {
+        console.log(error);
+        this.router.navigate(["/login"]);
+        
+      }
+    })
+  }
+  public deleteProductCarrito(id_product: Number, id_user: Number): void {
+    this.http.delete("http://localhost:8081/api/carrito/" + id_user + "/" + id_product).subscribe({
+      next: (response: any) => {
+        console.log(response.result);
+      },
+      error: (error: any) => {
+        console.log(error);
+        this.router.navigate(["/login"]);
+      }
+    })
+  }
+
+  public addQProduct(id: Number, id_user: Number) {
+    console.log(id,id_user);
+    this.http.put("http://localhost:8081/api/products", {
+      id: id,
+      id_vendedor: id_user,
+      quantity:1
+    }).subscribe({
+      next: (response: any) => {
         console.log(response.result);
       },
       error: (error: any) => {
@@ -64,12 +128,28 @@ export class ProductServices {
       }
     })
   }
-  public deleteProductCarrito(id_product:Number,id_user:Number):void{
-    this.http.delete("http://localhost:8081/api/carrito/"+id_user+"/"+id_product).subscribe({
-      next: (response:any) => {
+  public reduceProduct(id: Number, id_user: Number) {
+    console.log(id,id_user);
+    this.http.put("http://localhost:8081/api/products", {
+      id: id,
+      id_vendedor: id_user,
+      quantity:-1
+    }).subscribe({
+      next: (response: any) => {
         console.log(response.result);
       },
-      error: (error:any)=>{
+      error: (error: any) => {
+        console.log(error);
+      }
+    })
+  }
+  public fetchProductInventario(id_vendedor:Number){
+    this.http.get("http://localhost:8081/api/inventory/" + id_vendedor).subscribe({
+      next: (response: any) => {
+        this.invetorylist = response.result
+        console.log(response.result);
+      },
+      error: (error: any) => {
         console.log(error);
       }
     })
@@ -95,7 +175,8 @@ export class ProductServices {
       "id_vendedor":2
   }*/
   public productlist: Product[] = [];
-  public carritolist: Product[]=[];
+  public carritolist: Product[] = [];
+  public invetorylist: Product[] = [];
   /*public productlist: Product[] = [
       {
           "title": "One Piece Manga Tomo 1",

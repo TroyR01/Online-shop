@@ -25,7 +25,8 @@ export class CarritoProductComponent {
     id_vendedor: 0
   };
   public deleteProduct(id_product:Number):void{
-    const id_user=24601;
+    const id = localStorage.getItem("id_user")??"";
+    const id_user=parseInt(id,10);
     this.productService.deleteProductCarrito(id_product,id_user);
     this.router.navigate(['/carrito']);
   }

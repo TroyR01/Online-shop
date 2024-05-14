@@ -12,12 +12,12 @@
     <div class="" style="text-align: center;margin-top:5%">
         <button class="icon-btn add-btn">
           <div class="add-icon"></div>
-          <div class="btn-txt">Add</div>
+          <div class="btn-txt" (click)="addProductInventory(product_item.id,product_item.id_vendedor)">Add</div>
         </button>
       </div>
       <div class="" style="text-align: center; margin-top:5%">
         <button class="icon-btn add-btn">  
-          <div class="btn-txt">Remove</div>
+          <div class="btn-txt" (click)="reduceProductInventory(product_item.id,product_item.id_vendedor)">Remove</div>
         </button>
       </div>
 </div>

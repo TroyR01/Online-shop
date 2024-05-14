@@ -3,7 +3,7 @@
       <app-carrito-product *ngFor="let product of products" [product_item]="product"></app-carrito-product>
     </div>
     <div class="boton">
-    <button class="button">
+    <button class="button" (click)="btnBuy()">
       <span class="button__text">
         <span>C</span> <span>o</span> <span>m</span> <span>p</span> <span>r</span> <span>a</span> <span>r</span>
       </span>

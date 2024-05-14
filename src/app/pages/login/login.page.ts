@@ -5,6 +5,9 @@ import { UserInfoServices } from '../../services/userInfo.services';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 
+import { HttpClient } from '@angular/common/http';
+import { JwtHelperService } from '@auth0/angular-jwt';
+
 
 @Component({
   selector: 'app-login',
@@ -20,8 +23,11 @@ export class LoginPage {
   public correo:string = "";
   public selectedRole:string = "";
   public tipo:number = 0;
-  constructor( private userInfoService:UserInfoServices,private router:Router){
 
+  public passInput: string = "";
+  public emailInput:string = "";
+  constructor( private userInfoService:UserInfoServices,private router:Router,private http:HttpClient){
+    //console.log(userInfoService.user_id)
   }
   public addUser():void{
     this.id = Math.floor(Math.random() * 1000000);
@@ -38,5 +44,18 @@ export class LoginPage {
 
   toggleForm() {
     this.isSignup = !this.isSignup;
+  }
+  public onLogin():void{
+    this.http.post("http://localhost:8081/api/auth/login",{"email":this.emailInput,
+    "password":this.passInput}).subscribe({
+      next:(response:any) => {
+        localStorage.setItem("auth_token",response.token);
+        this.userInfoService.fetchUserId(this.emailInput,this.passInput);
+        //localStorage.setItem("id_user",this.userInfoService.user_id.toString());
+        this.router.navigate(['/user'+'/'+this.userInfoService.user_id])
+      },error:(error:any)=>{
+        console.log(error);
+      }
+    })
   }
 }

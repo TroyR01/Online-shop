@@ -3,6 +3,7 @@ import { Product } from '../../interfaces/product.interface';
 import { NgIf } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { ProductServices } from '../../services/products.services';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-buy-product',
@@ -12,7 +13,7 @@ import { ProductServices } from '../../services/products.services';
   styleUrl: './buy-product.component.css'
 })
 export class BuyProductComponent {
-  constructor(private http: HttpClient,private productService:ProductServices) { 
+  constructor(private http: HttpClient,private productService:ProductServices,private router:Router) { 
     
   }
   @Input()
@@ -28,6 +29,9 @@ export class BuyProductComponent {
   };
   public btnAddCarrito(id:Number){
     this.productService.addProductCarrito(id);
-    
+    this.router.navigate(["/carrito"])
+  }
+  public btnBuy(){
+    this.router.navigate(["pay"])
   }
 }

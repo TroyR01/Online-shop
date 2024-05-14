@@ -8,7 +8,7 @@
         <p><span>Descripción: </span>{{product_item.descripcion}}</p>
         <div *ngIf="product_item.quantity>0" class="botones">
             <button class="agregar-al-carrito" (click)="btnAddCarrito(product_item.id)">Agregar al carrito</button>
-            <button class="comprar">Comprar</button>
+            <button class="comprar" (click)="btnBuy()">Comprar</button>
         </div>
     </div>
 </div>

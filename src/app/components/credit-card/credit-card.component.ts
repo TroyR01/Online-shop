@@ -30,7 +30,9 @@ export class CreditCardComponent {
   }
 
   public deleteCreditCard(num_tar:string):void{
-    this.creditService.deleteCreditCard(num_tar,24601);
+    const id = localStorage.getItem("id_user")??"";
+    const id_user = parseInt(id,10);
+    this.creditService.deleteCreditCard(num_tar,id_user);
     this.router.navigate(['/pay']);;
   }
 }

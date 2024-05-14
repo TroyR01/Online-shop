@@ -18,11 +18,27 @@ export class UserInfoServices {
             "colonia": "",
             "tipo": 0
         };
+    public user_id:Number = 0;
+    public fetchUserId(correo:string,password:string):void{
+        this.http.get("http://localhost:8081/api/users/"+correo+"/"+password).subscribe({
+            next: (response: any) => {
+                this.userinfo = response.result;
+                this.user_id = this.userinfo.id;
+                console.log(this.userinfo);
+                localStorage.setItem("id_user",this.user_id.toString());
+            },
+            error: (error: any) => {
+                console.log(error);
+            }
+        })
+    }
     public fetchUser(id: Number): void {
         this.http.get("http://localhost:8081/api/users/" + id).subscribe({
             next: (response: any) => {
                 this.userinfo = response.result;
-                console.log(this.userinfo);
+                this.user_id = this.userinfo.id;
+                console.log(this.user_id);
+                //localStorage.setItem("id_user",this.user_id.toString());
             },
             error: (error: any) => {
                 console.log(error);
