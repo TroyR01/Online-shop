@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { userInfo } from '../interfaces/user_info.interface';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Injectable({
     providedIn: 'root'
 })
 
 export class UserInfoServices {
-    constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient,private router:Router) { }
     public userinfo: userInfo =
         {
             "id": 0,
@@ -19,10 +20,12 @@ export class UserInfoServices {
             "tipo": 0
         };
     public user_id:Number = 0;
+    public user_name:string = "";
     public fetchUserId(correo:string,password:string):void{
         this.http.get("http://localhost:8081/api/users/"+correo+"/"+password).subscribe({
             next: (response: any) => {
                 this.userinfo = response.result;
+                this.user_name = this.userinfo.nombre;
                 this.user_id = this.userinfo.id;
                 console.log(this.userinfo);
                 localStorage.setItem("id_user",this.user_id.toString());
@@ -33,15 +36,22 @@ export class UserInfoServices {
         })
     }
     public fetchUser(id: Number): void {
-        this.http.get("http://localhost:8081/api/users/" + id).subscribe({
+        const token = localStorage.getItem("auth_token")??"";
+        this.http.get("http://localhost:8081/api/users/" + id,{
+            headers:{
+                "Authorization":token
+              }
+        }).subscribe({
             next: (response: any) => {
                 this.userinfo = response.result;
+                this.user_name = this.userinfo.nombre;
                 this.user_id = this.userinfo.id;
                 console.log(this.user_id);
                 //localStorage.setItem("id_user",this.user_id.toString());
             },
             error: (error: any) => {
                 console.log(error);
+                //this.router.navigate(["login"]);
             }
         })
     }

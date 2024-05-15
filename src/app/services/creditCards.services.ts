@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { creditCard } from '../interfaces/creditCard.interface';
 import { HttpClient } from '@angular/common/http';
 import { UserInfoServices } from './userInfo.services';
+import { Router } from '@angular/router';
 
 @Injectable({
     providedIn: 'root'
 })
 
 export class CreditCardServices {
-    constructor(private http: HttpClient) {
+    constructor(private http: HttpClient,private router:Router) {
     }
     public creditCardList: creditCard[] = [];
     public fetchCreditCard(id: Number): void {
@@ -23,6 +24,7 @@ export class CreditCardServices {
                 console.log(this.creditCardList);
             },
             error: (error: any) => {
+                this.router.navigate(["/login"]);
                 console.log(error);
             }
         })

@@ -32,11 +32,24 @@ export class LoginPage {
   public addUser():void{
     this.id = Math.floor(Math.random() * 1000000);
     if(this.selectedRole=="vendedor")
-      this.tipo = 1;
-    else
       this.tipo = 2;
+    else
+      this.tipo = 1;
     console.log(this.tipo);
     this.userInfoService.addUser(this.id,this.nombre,this.correo,this.password,this.tipo);
+    this.http.post("http://localhost:8081/api/auth/login",{"email":this.correo,
+    "password":this.password}).subscribe({
+      next:(response:any) => {
+        localStorage.setItem("auth_token",response.token);
+        this.userInfoService.fetchUserId(this.emailInput,this.passInput);
+        const id = localStorage.setItem("id_user",this.id.toString());
+        //const id_user = parseInt(id,10);
+        //localStorage.setItem("id_user",this.userInfoService.user_id.toString());
+        this.router.navigate(['/user'+'/'+this.id])
+      },error:(error:any)=>{
+        console.log(error);
+      }
+    })
     this.router.navigate(['/user'+'/'+this.id])
 
   }
@@ -51,8 +64,10 @@ export class LoginPage {
       next:(response:any) => {
         localStorage.setItem("auth_token",response.token);
         this.userInfoService.fetchUserId(this.emailInput,this.passInput);
+        const id = localStorage.getItem("id_user")??"";
+        const id_user = parseInt(id,10);
         //localStorage.setItem("id_user",this.userInfoService.user_id.toString());
-        this.router.navigate(['/user'+'/'+this.userInfoService.user_id])
+        this.router.navigate(['/user'+'/'+id_user])
       },error:(error:any)=>{
         console.log(error);
       }

@@ -14,7 +14,9 @@ import { FormsModule } from '@angular/forms';
 })
 export class InventarioPage {
   constructor(private productService : ProductServices){
-    this.productService.fetchProductInventario(24601);
+    const id = localStorage.getItem("id_user")??"";
+    const id_user = parseInt(id,10);
+    this.productService.fetchProductInventario(id_user);
   }
   public get products():Product[]{
     return this.productService.invetorylist;
@@ -26,6 +28,9 @@ export class InventarioPage {
   public edit:string = "";
   public img_url:string = "";
   public addProductInventory():void{
-    this.productService.addProduct(this.prod_name,this.price,this.quantity,this.description,this.img_url,24601,this.edit);
+    const id_prod = Math.floor(Math.random() * 1000000);
+    const id = localStorage.getItem("id_user")??"";
+    const id_user = parseInt(id,10);
+    this.productService.addProduct(id_prod,this.prod_name,this.price,this.quantity,this.description,this.img_url,id_user,this.edit);
   }
 }

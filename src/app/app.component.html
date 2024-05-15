@@ -6,9 +6,10 @@
     <button class="Buscar" (click)="btnClickSearch()">Buscar</button>
   </div>
   <div>
-    <a class="login" routerLink="./login"routerLinkActive="active">Iniciar Sesión</a><br>
+    <a *ngIf="!isAuthenticated" class="login" routerLink="./login" routerLinkActive="active">Iniciar Sesión</a>
+    <a *ngIf="isAuthenticated" class="login" routerLinkActive="active" (click)="btnUserInfo()" style="cursor: pointer;">Bienvenido</a>
 </div>
-<button class="boton-carrito">
+<button class="boton-carrito" (click)="btnCarrito()">
   <img src="https://cdn-icons-png.freepik.com/512/9284/9284424.png" alt="Carrito">
 </button>
 

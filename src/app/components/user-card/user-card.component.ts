@@ -3,11 +3,12 @@ import { userInfo } from '../../interfaces/user_info.interface';
 import { FormsModule } from '@angular/forms';
 import { UserInfoServices } from '../../services/userInfo.services';
 import { Router } from '@angular/router';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-user-card',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule,NgIf],
   templateUrl: './user-card.component.html',
   styleUrl: './user-card.component.css'
 })
@@ -41,6 +42,13 @@ export class UserCardComponent {
     
     this.userService.updateUserInfo(this.userInfo.id,this.direccion,this.colonia,this.correo);
     this.router.navigate(['/user', this.userInfo.id]);
+  }
+  public btnInventario(){
+    this.router.navigate(["/inventario"]);
+  }
+  public logOut():void{
+    localStorage.clear();
+    this.router.navigate(["/home"]);
   }
 }
 

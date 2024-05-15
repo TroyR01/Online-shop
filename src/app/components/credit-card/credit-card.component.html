@@ -38,8 +38,10 @@
       </div>
       <div class="card-back">
         <div class="card-signature">{{creditCard.nombre}}</div>
-        <div class="card-seccode">123</div>
+        <div class="card-seccode">{{creditCard.cvv}}</div>
       </div>
     </div>
   </div>
   <div class="borrar" (click)="deleteCreditCard(creditCard.num_tarjeta)"><button>Borrar</button></div>
+  <div class="borrar" *ngIf="productid==0" (click)="btnBuy(creditCard.num_tarjeta)"><button>Pagar</button></div>
+  <div class="borrar" *ngIf="productid!=0" (click)="btnBuyProduct()"><button>Pagar</button></div>

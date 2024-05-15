@@ -9,3 +9,7 @@
         <img src='https://i.pinimg.com/564x/48/86/9d/48869d2b38465ba2587169ed1d27e9cb.jpg'>
     </div>
 </div>
+<div>
+    <button *ngIf="userInfo.tipo==2" (click)="btnInventario()">Inventario</button>
+    <button (click)="logOut()">Cerrar Sesión</button>
+</div>

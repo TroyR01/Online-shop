@@ -32,6 +32,7 @@ export class BuyProductComponent {
     this.router.navigate(["/carrito"])
   }
   public btnBuy(){
+    this.productService.productId = this.product_item.id;
     this.router.navigate(["pay"])
   }
 }

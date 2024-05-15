@@ -12,9 +12,10 @@ export class ProductServices {
   constructor(private http: HttpClient,private router:Router,private userInfo:UserInfoServices) {
     this.fetchProduct();
   }
-  public addProduct(prod_name:string,price:Number,quantity:Number,desc:string,url:string,id_vendedor:Number,seller:string):void{
+  public productId:Number = 0;
+  public addProduct(id:Number,prod_name:string,price:Number,quantity:Number,desc:string,url:string,id_vendedor:Number,seller:string):void{
     this.http.post("http://localhost:8081/api/products", {
-        id:90,
+        id:id,
         title:prod_name,
         seller:seller,
         price:price,
@@ -144,13 +145,45 @@ export class ProductServices {
     })
   }
   public fetchProductInventario(id_vendedor:Number){
-    this.http.get("http://localhost:8081/api/inventory/" + id_vendedor).subscribe({
+    const token = localStorage.getItem("auth_token")??"";
+    this.http.get("http://localhost:8081/api/inventory/" + id_vendedor,{
+      headers:{
+        "Authorization":token
+      }
+    }).subscribe({
       next: (response: any) => {
         this.invetorylist = response.result
         console.log(response.result);
       },
       error: (error: any) => {
         console.log(error);
+        this.router.navigate(["/login"]);
+      }
+    })
+  }
+  public buyOneProduct(id:Number):void{
+    this.http.put("http://localhost:8081/api/products/"+id, {
+      id:id
+    }).subscribe({
+      next: (response: any) => {
+        console.log(response.result);
+      },
+      error: (error: any) => {
+        console.log(error);
+      }
+    })
+  }
+  public buyCarrito():void{
+    //const token = localStorage.getItem("auth_token")??"";
+    const id_user = localStorage.getItem("id_user");
+    const id = parseInt(id_user??"", 10)
+    this.http.delete("http://localhost:8081/api/carrito/" + id).subscribe({
+      next: (response: any) => {
+        console.log(response.result);
+      },
+      error: (error: any) => {
+        console.log(error);
+        //this.router.navigate(["/login"]);
       }
     })
   }
